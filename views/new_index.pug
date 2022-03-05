@@ -1,0 +1,42 @@
+extends layout
+block prepend script
+
+block content
+        div#hedline
+         h1= title
+        p Registered in #{title}
+        div#table-wrapper
+            table#desc
+             tbody
+              tr#one
+                  th#hideId1
+                     p Id
+                  th
+                     p Name
+                  th
+                     p Surname
+                  th
+                     p Phone
+                  th
+                     p Buttons to modify data
+
+              each val, index in array
+               tr(id='tr'+ index)
+                   td(style="display:none")= val.id
+                   td= val.name
+                   td= val.surname
+                   td= val.phone
+                   td
+
+                     a(href='/edit/' + val.id ) Edit Contact
+                     br
+                     br
+                     a(href='/edit/' + val.id +'/delete' ) Delete Contact
+
+
+        div#button1
+            a(href='/contacts') add contact
+            br
+            a(href='/') home page
+
+

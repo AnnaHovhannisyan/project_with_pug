@@ -1,0 +1,39 @@
+extends layout
+block prepend script
+    script(src='/js_folder/phone_check.js')
+block content
+    h1= title
+
+    div#cont_data
+
+        form(action='/contacts/new', method="POST")
+                p
+                    input(style = 'display:none' id="id" + Number(array.length) name='id' placeholder='Id' value="idValue")
+                p
+                    label(for 'name') Name
+                p
+                    input#firstInp(type='text' name='name' placeholder='name' )
+                p
+                    label(for 'surname') Surname
+                p
+                    input#secondInp(type='text' name='surname' placeholder='surname')
+                p
+                    label(for 'phone') Phone
+                div(id='myDiv')
+                    input(type='text' name='phone' placeholder='phone' id="dropdown" )
+                    ul#myDropdown
+                        li 91
+                        li 93
+                        li 94
+                        li 95
+                        li 98
+                        li 99
+                        li 77
+                        li 55
+
+                    input(type="submit", id= 'btnSubmit'  value="Add new Contact" style='background-color:#e4fffc')
+
+
+
+        div#button1
+            a(href='/') home page

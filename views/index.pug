@@ -1,0 +1,36 @@
+extends layout
+block script
+
+block content
+  div#headline
+   h1= title
+
+
+  div#table-wrapper
+    table#desc
+      tr#one
+       th#hideId1
+        p Id
+       th
+        p Name
+       th
+        p Surname
+       th
+        p Phone
+
+
+       each val, index in array
+         tr(id='tr'+ index)
+           each vl,key in val
+             if val.id
+             td(class = 'text_' + key)= vl
+
+
+
+
+  div#button1
+      a(href='/contacts') Add contact
+      a(href='/contacts/new') Edit contact
+
+
+
