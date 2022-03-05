@@ -4,9 +4,7 @@ let arrayOfContacts = require('../db/add_contacts');
 let registerController = require('../controllers/register_controller');
 let createdId=require('../public/js_folder/create_id');
 const { body,validationResult } = require('express-validator');
-let  { checkName } = require('../middlewares/check_name');
-let  { checkSurname } = require('../middlewares/check_surname');
-let  { checkPhone } = require('../middlewares/check_phone');
+
 
 
 router.get('/', function(req, res) {
@@ -15,22 +13,21 @@ router.get('/', function(req, res) {
 
 });
 router.post('/',
-     checkName,
-    checkSurname,
-    checkPhone,
 
-    body('name').isLength({min:2}),
+    body('name').isLength({min:2}).withMessage().matches(/^[A-Z]{1}[a-z]+$/,'g').withMessage('Invalid name'),
     body('surname').isLength({min:2}),
     body('phone').isLength({min:8}),
 
 
     async (req, res) => {
+        const errors = validationResult(req);
+        console.log(errors);
+        if (!errors.isEmpty()) {
+            return res.render('contact',{status:400,errors: errors.array() });
+        }
 
     try {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.render('error',{status:400,errors: errors.array() });
-    }
+
 
 const idOfContact = req.body.id;
 
@@ -67,6 +64,10 @@ const idOfContact = req.body.id;
 
     } catch (e) {
         console.log(e);
+       /* const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.render('error',{status:400,errors: errors.array() });
+        }*/
     }
 }
 
