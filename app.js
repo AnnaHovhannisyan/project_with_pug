@@ -8,10 +8,8 @@ const indexRouter = require('./routes/index');
 const contactsRouter = require('./routes/contacts');
 const newContactRouter = require('./routes/new');
 const editRouter = require('./routes/edit_route');
-const errorsRouter = require('./routes/error_router');
 
 const app = express();
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,7 +25,7 @@ app.use('/', indexRouter);
 app.use('/contacts', contactsRouter);
 app.use('/edit', editRouter);
 app.use('/contacts/new', newContactRouter);
-app.use('/error', errorsRouter);
+
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
@@ -48,6 +46,7 @@ app.use(function(err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.render('error');
+    next()
 });
 
 

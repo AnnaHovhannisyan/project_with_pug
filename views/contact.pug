@@ -5,14 +5,16 @@ block content
     h1= title
 
     div#cont_data
+        p
         if errors
             each item in errors
                 p= item.msg
 
 
         form(action='/contacts/new', method="POST")
+
                 p
-                    input(style = 'display:none' id="id"  name='id' placeholder='Id' value="idValue")
+                    input(style = 'display:none' id="idInp"  name='id' placeholder='Id' value="idValue")
                 p
                     label(for 'name') Name
                 p

@@ -6,6 +6,9 @@ block content
     h1= title
 
     div#cont_data
+        if errors
+            each item in errors
+                p= item.msg
 
         form(action='/contacts/new', method="POST")
                 p

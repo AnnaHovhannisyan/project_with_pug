@@ -37,7 +37,7 @@ router.route('/:id/delete').get(
 
             arrayOfCont.splice(arrayOfCont.indexOf(contact),1);
 
-            res.render('index', { title: 'Contacts', array:arrayOfCont});
+            res.render('new_index', { title: 'Contacts', array:arrayOfCont});
 
         } catch (e) {
             console.log(e)

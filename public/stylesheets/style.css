@@ -8,7 +8,6 @@ body {
 }
 
 a {
-  /*color: #00B7FF;*/
   color: #59d3ff;
   margin: auto;
 }
@@ -46,15 +45,8 @@ td{
   width: 600px;
 }
 #cont_data form{
- /* display: flex;
-  justify-content: space-around;*/
   margin: 100px;
- /* align-items: center;*/
-  /*align-items: flex-start;
-  flex-direction: column;*/
   font-size: 20px;
- /* position: absolute;*/
-  /*background-color: #e4fffc;*/
 }
 #cont_data form p label{
   color: #4479e2;
@@ -63,7 +55,6 @@ td{
 #headline{
   display:flex;
   margin: 50px auto;
- /* background-color: #d7d9ff;*/
   align-items: center;
   justify-content: center;
   border: dashed blue 1px;
@@ -82,9 +73,7 @@ h1{
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  /*background-color: #eaf2ff;*/
-  /*border: dashed blue 1px;*/
-  /*position: absolute;*/
+
 }
 #hideId1{
   display: none;

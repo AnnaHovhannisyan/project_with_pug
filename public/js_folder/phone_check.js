@@ -1,6 +1,6 @@
 window.onload=function() {
 let input=document.getElementById('dropdown');
-    let regexp= new RegExp(/\D/, 'gi');
+    let regexp= new RegExp('\D', 'gi');
 
     input.addEventListener('keydown',function (event) {
 
