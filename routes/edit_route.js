@@ -1,11 +1,11 @@
 const express = require('express');
+
 const router = express.Router();
 let arrayOfCont = require('../db/add_contacts');
 
-router.get('/', function(req, res) {
+router.get('/', (req, res) => {
 
     res.render('contact', { title: 'Contacts', array:arrayOfCont });
-
 
 });
 
@@ -16,10 +16,10 @@ router.route('/:id').get(
         try {
             let idOfContact=req.params.id;
 
-            let contact = arrayOfCont.find(item => item.id === idOfContact);
+            let contactEdit = arrayOfCont.find(item => item.id === idOfContact);
 
 
-            res.render('edit_contact', { title: 'Edit-Contact', contact:contact});
+            res.render('edit_contact', { title: 'Edit-Contact', contact:contactEdit});
 
         } catch (e) {
             console.log(e);

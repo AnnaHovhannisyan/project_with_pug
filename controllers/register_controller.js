@@ -1,10 +1,12 @@
-const contactController= require('../controllers/contact_controller');
+const contactController= require('./contact_controller');
 
 class RegisterController{
-    async register(data) {
-        return  await contactController.add(data);
+      static register(data){
+
+       return  contactController.add(data);
+       
     };
 
 }
 
-module.exports= new RegisterController();
+module.exports = RegisterController;

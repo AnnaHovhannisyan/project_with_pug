@@ -1,25 +1,20 @@
 const Contacts = require('../db/add_contacts');
 
-
-
-class ContactController{
-
-    async add(data) {
-        let { id }=data;
-        for await(let h of Contacts){
-            let {id:idOfContact } = h;
-
-            if(id === idOfContact){
-                Contacts.splice(Contacts.indexOf(h),1)
-            }
-        }
-
-        Contacts.push(data);
-
-
-return Contacts;
+class ContactController {
+  
+ static add(data){
+  
+    let idOfCont = data.id;
+    let contact = Contacts.find(item => item.id === idOfCont);
+    if(contact){
+        Contacts.splice(Contacts.indexOf(contact), 1);  
     }
+     
+    Contacts.push(data);
+
+
+  }
 
 }
 
-module.exports= new ContactController();
+module.exports = ContactController;
