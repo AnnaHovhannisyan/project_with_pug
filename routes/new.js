@@ -4,15 +4,11 @@ const { body,validationResult } = require('express-validator');
 
 let arrayOfContacts = require('../db/add_contacts');
 
-let registerController = require('../controllers/register_controller');
+let contactController = require('../controllers/contact_controller');
 
 let createdId=require('../public/js_folder/create_id');
 
 const router = express.Router();
-
-
-
-
 
 
 
@@ -64,7 +60,7 @@ const idOfContact = req.body.id;
 
         if(typeof contact === 'undefined') {
 
-          registerController.register({
+          contactController.add({
                 id: req.body.id + newId,
                 name: req.body.name,
                 surname: req.body.surname,
@@ -79,7 +75,7 @@ const idOfContact = req.body.id;
         }
      if(contact){
 
-         registerController.register({
+         contactController.add({
                 id: contact.id,
                 name: req.body.name,
                 surname: req.body.surname,
