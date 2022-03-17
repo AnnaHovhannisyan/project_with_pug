@@ -1,6 +1,3 @@
-let arrayOfObjects = [
-
-    ];
-
+let arrayOfObjects = [];
 
 module.exports = arrayOfObjects;

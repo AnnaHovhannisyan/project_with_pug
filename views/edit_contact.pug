@@ -10,32 +10,32 @@ block content
             each item in errors
                 p= item.msg
 
-        form(action='/contacts/new', method="POST")
-                p
-                    input(type = 'hidden' id = contact.id value = contact.id  name='id' placeholder='Id' )
-                p
-                    label(for 'name') Name
-                p
-                    input#firstInp1(type='text' name='name' placeholder='name' value = "" + contact.name )
-                p
-                    label(for 'surname') Surname
-                p
-                    input#secondInp1(type='text' name='surname' placeholder='surname' value = '' + contact.surname)
-                p
-                    label(for 'phone') Phone
-                div(id='myDiv1')
-                    input(type='text' name='phone' placeholder='phone' id="dropdown1" value = "" + contact.phone )
-                    ul#myDropdown1
-                        li 91
-                        li 93
-                        li 94
-                        li 95
-                        li 98
-                        li 99
-                        li 77
-                        li 55
-                p
-                   input(type="submit", id= 'btnSubmit1'  value="Edit Contact" style='background-color:#e4fffc')
+        form(action='/contacts/new' method="POST")
+            p
+                input(type = 'hidden' id = contact.id value = contact.id  name='id' placeholder='Id' )
+            p
+                label(for 'name') Name
+            p
+                input#firstInp1(type='text' name='name' placeholder='name' value = "" + contact.name )
+            p
+                label(for 'surname') Surname
+            p
+                input#secondInp1(type='text' name='surname' placeholder='surname' value = '' + contact.surname)
+            p
+                label(for 'phone') Phone
+            div(id='myDiv1')
+                input(type='text' name='phone' placeholder='phone' id="dropdown1" value = "" + contact.phone )
+                ul#myDropdown1
+                    li 91
+                    li 93
+                    li 94
+                    li 95
+                    li 98
+                    li 99
+                    li 77
+                    li 55
+            p
+                input(type="submit", id= 'btnSubmit1' value="Edit Contact" style='background-color:#e4fffc')
 
 
 
